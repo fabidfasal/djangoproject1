@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+
+    <table>
+        <thead>
+            <th>id</th>
+            <th>Name</th>
+            <th>Place</th>
+            <th>Email</th>
+            <th>Age</th>
+        </thead>
+        {% for user in data %}
+        <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.Name}}</td>
+        <td>{{user.Place}}</td>
+        <td>{{user.Age}}</td>
+        <td>{{user.Email}}</td>
+        <td><img src="{{user.photo.url}}"height="500px" width="450px"></td>
+        <td><a href="{% url 'app15:update' user.id %}">update</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
